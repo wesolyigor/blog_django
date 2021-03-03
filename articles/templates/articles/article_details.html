@@ -11,6 +11,6 @@
 
 <p class="date">Opublikowany {{ article.publish }} przez {{ article.author }}</p>
 
-{{ article.body }}
+{{ article.body|safe }}
 
 {% endblock %}
