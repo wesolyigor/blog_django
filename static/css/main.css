@@ -90,3 +90,13 @@ input[type=submit] {
     font-size:12px;
     color:#666;
 }
+
+.image-list {
+    max-width:20%;
+    height:auto;
+}
+
+.image-article {
+    max-width:100%;
+    height:auto;
+}
