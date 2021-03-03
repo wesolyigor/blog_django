@@ -90,3 +90,8 @@ input[type=submit] {
     font-size:12px;
     color:#666;
 }
+.logo {
+    width: 20%;
+    max-width: 100px;
+    height: auto;
+}

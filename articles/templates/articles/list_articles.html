@@ -1,15 +1,16 @@
 {% extends "_base.html" %}
 {% block title %}Blog Firmowy{% endblock %}
 {% block content %}
-    <h1>Blog firmowy</h1>
+    <h3>Najnowsze artykuły</h3>
     {% for article in articles %}
-        <img src="{{ article.image.url }}" class="image-list">
+        <hr>
+
+        <p><img src="{{ article.image.url }}" class="image-list">
         <h2>
             <a href="{{ article.get_absolute_url }}">
                 {{ article.title }}
             </a>
-        
-        </h2>
+        </h2></p>
         <p class="date">
             Opublikowany {{ article.publish }} przez {{ article.author }}
         </p>

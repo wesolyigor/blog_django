@@ -100,3 +100,18 @@ input[type=submit] {
     max-width:100%;
     height:auto;
 }
+
+.category-details {
+    font-weight:bold;
+    background:#0c0d0d;
+    color:#fff;
+    padding:10px 20px;
+    font-size:14px;
+    text-transform:uppercase;
+}
+
+.logo {
+    width: 50%;
+    max-width: 100px;
+    height: auto;
+}

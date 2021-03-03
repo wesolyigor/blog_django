@@ -5,14 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<h1>{{ article.title }}</h1>
-
+    <h1>{{ article.title }}</h1>
+        <p class="category-details">{{ article.category }}</p>
     <img src="{{ article.image.url }}" class="image-article" alt="">
+    <h2>{{ article.lead }}</h2>
+        <p class="date">Opublikowany {{ article.publish }} przez {{ article.author }}</p>
 
-<h2>{{ article.lead }}</h2>
-
-<p class="date">Opublikowany {{ article.publish }} przez {{ article.author }}</p>
-
-{{ article.body|safe }}
+    {{ article.body|safe }}
 
 {% endblock %}

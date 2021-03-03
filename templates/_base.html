@@ -8,16 +8,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
+
+{% block mainnav %}
+
+    {% include '_navbar.html' %}
+
+{% endblock %}
+
 <body>
-<div id="content">
-    {% block content %}
-    {% endblock %}
-</div>
-<div id="sidebar">
-    <h2>Firmowy blog</h2>
-    <p>Dużo, ciekawych informacji.</p>
-</div>
+
+{% block main %}
+    <main class="container">
+        <div class="row">
+            <div class="col-9">
+                {% block content %}{% endblock %}
+            </div>
+
+            <div class="col-3">
+                <h2>Firmowy blog</h2>
+                <p>Dużo, ciekawych informacji.</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}
+
 </body>
 </html>
 
