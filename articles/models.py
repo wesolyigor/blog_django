@@ -10,6 +10,11 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
+class CategoryManager(models.Manager):
+    def get_queryset(self, category):
+        return super(CategoryManager, self).get_queryset().filter(category=category)
+
+
 class Article(models.Model):
     STATUS_CHOICE = (
         ('draft', 'Draft'),
