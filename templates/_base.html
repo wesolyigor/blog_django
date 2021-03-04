@@ -27,11 +27,17 @@
             </div>
 
             <div class="col-3">
-                <h2>Firmowy blog</h2>
-                <p>Dużo, ciekawych informacji.</p>
+                {% block sidecontent %}
+                    <h2>Firmowy blog</h2>
+                    <p>Dużo, ciekawych informacji.</p>
+                {% endblock %}
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block footer %}
+    {% include '_footer.html' %}
 {% endblock %}
 
 {% block script %}
