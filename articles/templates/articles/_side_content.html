@@ -1,20 +1,21 @@
-{#{% with artilice_list.count as articles %}#}
-{#    {% for article in articles %}#}
-{#        {{ article.title }}#}
-{#        <div class="container">#}
-{#        <div class="row">#}
-{#            <div class="col-sm-3 photo-alignment">#}
-{#                <img src="{{ article.image.url }}" class="image-list filtered">#}
-{#            </div>#}
-{#            <div class="col-sm-9">#}
-{#                <h2>#}
-{#                    <a href="{{ article.get_absolute_url }}">#}
-{#                        {{ article.title }}#}
-{#                    </a>#}
-{#                </h2>#}
-{##}
-{#            </div>#}
-{#        </div>#}
-{#        </div>#}
-{#    {% endfor %}#}
-{#{% endwith %}#}
+
+{% with similar_articles as similar_articles %}
+    <h3>Może Cię zainteresować: </h3>
+    {% for article in similar_articles %}
+    <div class="container responsive">
+            <div class="row">
+
+                <a href="{{ article.get_absolute_url }}">
+                    <div class="photo-alignment gallery">
+                        <img src="{{ article.image.url }}" class="sidebar-artdet-img">
+                    </div>
+                </a>
+
+                <a href="{{ article.get_absolute_url }}" class="sidebar-href">
+                    {{ article.title }}
+                </a>
+
+            </div>
+        </div>
+    {% endfor %}
+{% endwith %}

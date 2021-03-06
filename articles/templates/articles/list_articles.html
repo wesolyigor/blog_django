@@ -12,26 +12,28 @@
     {% for article in articles %}
         <hr>
         <div class="container">
-        <div class="row">
-            <div class="col-sm-3 photo-alignment">
-                {% if article.category %}
-                    <span class="notify-badge-{{ article.category }}">{{ article.category }}</span>
-                {% else %}
-                    <span class="notify-badge-other">read</span>
-                {% endif %}
-                <img src="{{ article.image.url }}" class="image-list filtered">
+            <div class="row">
+                <div class="col-sm-3 photo-alignment">
+                    {% if article.category %}
+                        <span class="notify-badge-{{ article.category }}">{{ article.category }}</span>
+                    {% else %}
+                        <span class="notify-badge-other">read</span>
+                    {% endif %}
+
+                    <a href="{{ article.get_absolute_url }}"><img src="{{ article.image.url }}"
+                                                                  class="image-list filtered"></a>
+                </div>
+                <div class="col-sm-9">
+                    <h2>
+                        <a href="{{ article.get_absolute_url }}">
+                            {{ article.title }}
+                        </a>
+                    </h2>
+                    <p class="date">
+                        Opublikowany {{ article.publish }} przez {{ article.author }}
+                    </p>
+                </div>
             </div>
-            <div class="col-sm-9">
-                <h2>
-                    <a href="{{ article.get_absolute_url }}">
-                        {{ article.title }}
-                    </a>
-                </h2>
-                <p class="date">
-            Opublikowany {{ article.publish }} przez {{ article.author }}
-        </p>
-            </div>
-        </div>
         </div>
 
 
@@ -39,6 +41,6 @@
 
 
     {% endfor %}
-        {% include 'articles/_paginator.html' with page=articles %}
+    {% include 'articles/_paginator.html' with page=articles %}
 {% endblock %}
 

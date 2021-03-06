@@ -10,22 +10,23 @@
     <p class="author-article-details">{{ article.author }}</p>
     <p class="date">{{ article.publish }}</p>
     <h2>{{ article.lead }}</h2>
-        <img src="{{ article.image.url }}" class="image-article" alt="">
+    <img src="{{ article.image.url }}" class="image-article" alt="">
 
     {{ article.body|safe }}
 
     <hr>
-        {% if article.tags %}
-            <p class="tags"> Tags:
+    {% if article.tags %}
+        <p class="tags"> Tags:
             {% for tag in article.tags.all %}
                 <a href="{% url "articles:article_list_by_tag" tag.slug %}">{{ tag.name }}</a>
                 {% if not forloop.last %}, {% endif %}
             {% endfor %}
-            </p>
-        {% endif %}
+        </p>
+    {% endif %}
 
 
 {% endblock %}
+
 {% block sidecontent %}
     {% include 'articles/_side_content.html' %}
 {% endblock %}
@@ -34,11 +35,3 @@
     {% include '_comments.html' %}
 {% endblock %}
 
-
-{#<a href="{% url "blog:post_list_by_tag" tag.slug %}">#}
-{#{{ tag.name }}#}
-{#</a>#}
-{#{% if not forloop.last %}, {% endif %}#}
-
-
-{#<p class="tags">Tags: {{ article.tags.all| join:", " }}</p>#}

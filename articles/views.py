@@ -1,5 +1,6 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Count
 
 # Create your views here.
 from taggit.models import Tag
@@ -26,11 +27,18 @@ def articles_list(request, tag_slug=None):
     return render(request, 'articles/list_articles.html', {'page': page, 'articles': articles, 'tag': tag})
 
 
-def articles_detail(request, year, month, day, article, ):
+def articles_detail(request, year, month, day, article):
     article = get_object_or_404(Article, slug=article,
                                 status='published',
                                 publish__year=year,
                                 publish__month=month,
                                 publish__day=day,
                                 )
-    return render(request, 'articles/article_details.html', {'article': article})
+    article_tags_id = Article.tags.values_list('id', flat=True)
+    similar_articles = Article.published.filter(tags__in=article_tags_id).exclude(id=article.id)
+    similar_articles = similar_articles.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
+
+    return render(request, 'articles/article_details.html', {'article': article, 'similar_articles': similar_articles})
+
+
+
