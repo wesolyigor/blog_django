@@ -198,6 +198,7 @@ input[type=submit] {
     font-style: italic;
     padding-top: -10px;
 }
-.image-author{
-
+.tags{
+    color: #1d2124;
+    font-weight:500;
 }

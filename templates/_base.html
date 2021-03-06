@@ -24,6 +24,7 @@
         <div class="row">
             <div class="col-9">
                 {% block content %}{% endblock %}
+                {% block comments %}{% endblock %}
             </div>
 
             <div class="col-3">
@@ -32,9 +33,13 @@
                     <p>Dużo, ciekawych informacji.</p>
                 {% endblock %}
             </div>
+
         </div>
     </main>
 {% endblock %}
+
+
+
 
 {% block footer %}
     {% include '_footer.html' %}

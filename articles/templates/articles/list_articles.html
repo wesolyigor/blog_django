@@ -1,7 +1,14 @@
 {% extends "_base.html" %}
 {% block title %}Blog Firmowy{% endblock %}
 {% block content %}
-    <h3>Najnowsze artykuły</h3>
+
+
+    {% if tag %}
+        <h2>Artykuły oznaczone tagiem "{{ tag.name }}"</h2>
+    {% else %}
+        <h3>Najnowsze artykuły</h3>
+    {% endif %}
+
     {% for article in articles %}
         <hr>
         <div class="container">
@@ -29,6 +36,9 @@
 
 
         {{ article.lead|truncatewords:30|linebreaks }}
+
+
     {% endfor %}
-    {% include 'articles/_paginator.html' with page=articles %}
+        {% include 'articles/_paginator.html' with page=articles %}
 {% endblock %}
+

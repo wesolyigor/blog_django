@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from ckeditor.fields import RichTextField
+from taggit.managers import TaggableManager
 
 
 class PublishedManager(models.Manager):
@@ -38,6 +39,7 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICE, default='draft')
+    tags = TaggableManager()
 
     objects = models.Manager()
     published = PublishedManager()
@@ -58,3 +60,4 @@ class Article(models.Model):
 
 class Test(models.Model):
     body = RichTextField(blank=True, null=True)
+

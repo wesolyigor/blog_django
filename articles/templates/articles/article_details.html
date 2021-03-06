@@ -14,9 +14,31 @@
 
     {{ article.body|safe }}
 
+    <hr>
+        {% if article.tags %}
+            <p class="tags"> Tags:
+            {% for tag in article.tags.all %}
+                <a href="{% url "articles:article_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            </p>
+        {% endif %}
+
+
 {% endblock %}
 {% block sidecontent %}
-
     {% include 'articles/_side_content.html' %}
-
 {% endblock %}
+
+{% block comments %}
+    {% include '_comments.html' %}
+{% endblock %}
+
+
+{#<a href="{% url "blog:post_list_by_tag" tag.slug %}">#}
+{#{{ tag.name }}#}
+{#</a>#}
+{#{% if not forloop.last %}, {% endif %}#}
+
+
+{#<p class="tags">Tags: {{ article.tags.all| join:", " }}</p>#}

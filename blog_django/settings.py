@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     # project apps
     'home.apps.HomeConfig',
     'articles.apps.ArticlesConfig',
+    'comments.apps.CommentsConfig',
 
     # 3rd parts
     'ckeditor',
+    'taggit',
     # 'ckeditor_uploader',
 ]
 
