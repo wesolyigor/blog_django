@@ -41,4 +41,7 @@ def articles_detail(request, year, month, day, article):
     return render(request, 'articles/article_details.html', {'article': article, 'similar_articles': similar_articles})
 
 
-
+def categories_list(request, category):
+    articles_by_category = Article.published.filter(category=category)
+    return render(request, 'articles/categories_list.html',
+                  {'articles_by_category': articles_by_category, 'category': category})
