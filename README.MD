@@ -14,6 +14,7 @@ Welcome to the website of the company blog. The website enables the creation, se
 Functionalities:
 
 - Add an article, show list of articles and articles segregate by categories and tags
+- Absolute urls, properly for google robot indexing
 - Filtering content in admin views
 - An advanced edition of body text in admin views
 - Segregation by a category and tags 
