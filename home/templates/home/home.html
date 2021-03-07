@@ -1,0 +1,18 @@
+{% extends '_base.html' %}
+{% load markdownify %}
+{% load static %}
+
+
+
+{% block content %}
+    <h3> Click on icone to see content</h3>
+
+{{ markdowntext |markdownify }}
+
+    <img src="{% static 'images/readme_img/admin_views.png' %}" class="image-list">
+    <img src="{% static 'images/readme_img/admin2_views.png' %}" class="image-list">
+
+
+{% endblock %}
+
+

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # 3rd parts
     'ckeditor',
     'taggit',
+    'markdownify.apps.MarkdownifyConfig',
     # 'ckeditor_uploader',
 ]
 

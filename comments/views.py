@@ -16,7 +16,7 @@ def comment_detail(request):
     else:
         comment_form = CommentForm()
     return render(request,
-                  '_comments.html',
+                  'comments/_comments.html',
                   {'comments': comments,
                    'comment_form': comment_form})
 
